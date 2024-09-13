@@ -128,4 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropCount: 0
+  Score: 55
   itemRank: 10
+  isHit: 0

@@ -10,9 +10,12 @@ public class ItemManager : MonoBehaviour
 {
     //何番目に落としたのを判定用
     public int dropCount;
+    public int Score;
     //アイテムのランクを分別用
     public int itemRank = 0;
     ItemListManager itemListManager;
+    ScoreManager scoreManager;
+
     public bool isHit = false;
 
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class ItemManager : MonoBehaviour
     {
         //順番のリストを取得
         itemListManager = GameObject.Find("ItemListManager").GetComponent<ItemListManager>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -51,7 +55,9 @@ public class ItemManager : MonoBehaviour
                 var pos = collision.contacts[0].point;
                 var next_item = Instantiate(itemListManager.ItemList[itemRank + 1],pos,Quaternion.identity);
                 var dropNum = itemListManager.dropController.dropCount++;
-                next_item.GetComponent<ItemManager>().dropCount = dropNum;
+                var nextItemManager = next_item.GetComponent<ItemManager>();
+                nextItemManager.dropCount = dropNum;
+                ScoreAdd(nextItemManager.Score);
 
                 //進化の時の音
                 itemListManager.rankUpSource.PlayOneShot(itemListManager.rankUpSE);
@@ -61,5 +67,11 @@ public class ItemManager : MonoBehaviour
         {
             isHit = true;
         }
+    }
+
+    //スコアを加算
+    public void ScoreAdd(int _score)
+    {
+        scoreManager.Score += _score;
     }
 }
