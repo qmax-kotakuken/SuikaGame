@@ -11,7 +11,6 @@ public class ScoreManager : MonoBehaviour
     public Text ScoreText;
 
     PlayerData playerData;
-    public LeaderboardManager leaderboardManager;
 
     private void Start()
     {
@@ -31,7 +30,7 @@ public class ScoreManager : MonoBehaviour
             ScoreText.text = Score.ToString();
 
 
-            StartCoroutine(leaderboardManager.SubmitScore("PlayerName", Score));
+            
         }
 
     }
