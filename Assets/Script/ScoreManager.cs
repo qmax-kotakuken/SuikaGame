@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
 
     public Text ScoreText;
 
+    public LeaderboardManager leaderboardManager;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +22,9 @@ public class ScoreManager : MonoBehaviour
             oldScore = Score;
             //スコアを表示
             ScoreText.text = Score.ToString();
+
+
+            StartCoroutine(leaderboardManager.SubmitScore("PlayerName", Score));
         }
 
     }
