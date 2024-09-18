@@ -10,7 +10,14 @@ public class ScoreManager : MonoBehaviour
 
     public Text ScoreText;
 
+    PlayerData playerData;
     public LeaderboardManager leaderboardManager;
+
+    private void Start()
+    {
+        playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+        Debug.Log(playerData.playerName);
+    }
 
     // Update is called once per frame
     void Update()
