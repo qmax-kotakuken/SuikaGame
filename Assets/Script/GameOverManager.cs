@@ -37,6 +37,7 @@ public class GameOverManager : MonoBehaviour
                 this.enabled = false;
                 dropController.enabled = false;
                 Time.timeScale = 0;
+                leaderboardManager.FetchLeaderboardOnce(0);
             }
         }
     }
