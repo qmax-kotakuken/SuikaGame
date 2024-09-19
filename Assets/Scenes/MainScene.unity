@@ -3378,7 +3378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropCount: 0
-  speed: 0.005
+  speed: 0.1
   itemListManager: {fileID: 592548358}
   nextItemPos: {fileID: 2047559954}
   dropSource: {fileID: 1033600918}
