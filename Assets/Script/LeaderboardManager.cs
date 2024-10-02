@@ -51,15 +51,15 @@ public class LeaderboardManager : MonoBehaviour
         switch(_rankTypeNum)
         {
             case 0:
-                StartCoroutine(FetchLeaderboard("Daily"));
+                StartCoroutine(FetchLeaderboard("daily"));
                 leaderboardTitle.text = "Daily";
                 break;
             case 1:
-            StartCoroutine(FetchLeaderboard("Weekly"));
+            StartCoroutine(FetchLeaderboard("weekly"));
                 leaderboardTitle.text = "Weekly";
                 break;
             case 2:
-                StartCoroutine(FetchLeaderboard("All-Time"));
+                StartCoroutine(FetchLeaderboard("all-Time"));
                 leaderboardTitle.text = "All Time";
                 break;
             default:
